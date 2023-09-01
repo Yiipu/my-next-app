@@ -1,34 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# my-next-app
 
-## Getting Started
+这是一个使用 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) 框架的 [Next.js](https://nextjs.org/) 项目。
 
-First, run the development server:
+## 使用Docker部署
+
+### 克隆仓库
+
+使用 Git 克隆仓库到本地计算机。在 cmd 中执行以下命令：
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/Yiipu/my-next-app.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 安装 Docker
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+如果您尚未安装 Docker ，请按照 [`Get Docker`](https://docs.docker.com/get-docker/) 指南安装Docker。
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 构建 Docker 镜像
+
+进入项目目录：
+
+```bash
+cd your-repo
+```
+
+使用 Dockerfile 构建 Docker 镜像：
+
+```bash
+docker build -t your-image-name .
+```
+
+这将根据项目中的 Dockerfile 创建一个 Docker 镜像，并使用 `your-image-name` 来命名镜像。命令末尾的句点（.）表示 Dockerfile 位于当前目录，注意不要漏掉。
+
+### 运行 Docker 容器
+
+镜像构建完成后，使用以下命令在 Docker 容器中运行应用程序：
+
+```bash
+docker run -d -p 3000:3000 your-image-name
+```
+
+- `-d`：表示在后台运行容器。
+- `-p 3000:3000`：表示将容器的端口 3000 映射到主机的端口 3000 ，您可以根据应用程序的需要更改端口映射。
+
+### 访问应用程序
+
+应用程序现在应该正在 Docker 容器中运行。您可以在 Web 浏览器中访问 http://localhost:3000 来查看应用程序：
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+要了解更多关于 Next.js 的信息，请查看以下资源：
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs) - Next.js 特性和API
+- [Learn Next.js](https://nextjs.org/learn) - 互动学习 Next.js
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Next.js 的官方仓库 [the Next.js GitHub repository](https://github.com/vercel/next.js/)
