@@ -1,8 +1,10 @@
 # my-next-app
 
-这是一个使用 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) 框架的 [Next.js](https://nextjs.org/) 项目。
+这是一个使用 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) 搭建的 [Next.js](https://nextjs.org/) 项目。
 
 ## 使用Docker部署
+
+如果尚未安装 Docker ，请按照 [Get Docker](https://docs.docker.com/get-docker/) 指南安装Docker。
 
 ### 克隆仓库
 
@@ -12,13 +14,9 @@
 git clone https://github.com/Yiipu/my-next-app.git
 ```
 
-### 安装 Docker
-
-如果您尚未安装 Docker ，请按照 [`Get Docker`](https://docs.docker.com/get-docker/) 指南安装Docker。
-
 ### 构建 Docker 镜像
 
-进入项目目录：
+进入`your-repo`目录：
 
 ```bash
 cd your-repo
@@ -30,7 +28,7 @@ cd your-repo
 docker build -t your-image-name .
 ```
 
-这将根据项目中的 Dockerfile 创建一个 Docker 镜像，并使用 `your-image-name` 来命名镜像。命令末尾的句点（.）表示 Dockerfile 位于当前目录，注意不要漏掉。
+这将根据项目中的 Dockerfile 创建一个 Docker 镜像，并使用 `your-image-name` 来命名镜像。命令末尾的句点（`.`）表示 Dockerfile 位于当前目录，注意不要漏掉。
 
 ### 运行 Docker 容器
 
@@ -45,7 +43,7 @@ docker run -d -p 3000:3000 your-image-name
 
 ### 访问应用程序
 
-应用程序现在应该正在 Docker 容器中运行。您可以在 Web 浏览器中访问 http://localhost:3000 来查看应用程序：
+应用程序现在应该正在 Docker 容器中运行。您可以在 Web 浏览器中访问 http://localhost:3000 来查看应用程序。
 
 ## Learn More
 
