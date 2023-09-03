@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-div {
+* {
   background-color: var(--bs-body-bg);
   color: var(--bs-body-color);
-  padding: 20px;
 }
