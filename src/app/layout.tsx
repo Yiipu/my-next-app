@@ -2,8 +2,9 @@
 import '@/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import type { Metadata } from 'next'
+import Head from 'next/head'
 import React from 'react'
-import { ThemeProvider } from '@/components/theme-context'
+import useTheme, { ThemeProvider } from '@/components/theme-context'
 
 // ISSUE
 // 不起作用
@@ -26,21 +27,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
-    <html lang='zh-cn'>
-      <ThemeProvider>
+    <ThemeProvider>
+      <html lang='zh-cn'>
+        <Head>
+          <title>Dodo</title>
+          
+        </Head>
         <body>
-          <div>
-            <header>
-              <h1>Global Header</h1>
-            </header>
-            {children}
-            <footer>
-              <h2>Global Footer</h2>
-            </footer>
-          </div>
+          {children}
         </body>
-      </ThemeProvider>
-    </html>
+      </html>
+    </ThemeProvider>
   )
 }
