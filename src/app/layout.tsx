@@ -1,10 +1,8 @@
-'use client'
 import '@/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import type { Metadata } from 'next'
 import Head from 'next/head'
 import React from 'react'
-import useTheme, { ThemeProvider } from '@/components/theme-context'
 
 // ISSUE
 // 不起作用
@@ -29,16 +27,13 @@ export default function RootLayout({
 }) {
 
   return (
-    <ThemeProvider>
       <html lang='zh-cn'>
         <Head>
           <title>Dodo</title>
-          
         </Head>
         <body>
           {children}
         </body>
       </html>
-    </ThemeProvider>
   )
 }

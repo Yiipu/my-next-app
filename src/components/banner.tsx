@@ -10,8 +10,8 @@ export default function Banner() {
                     alt="bannerPic"
                     placeholder="blur"
                 />
-                <div className="absolute w-full h-full top-0 left-0 -z-1 bg-gradient-to-t from-blue-900 bg-transparent"></div>
-                <div className="absolute z-1 bg-transparent">
+                <div className="absolute w-full h-full top-0 left-0 -z-1 bg-gradient-to-t from-blue-900"></div>
+                <div className="z-1">
                     <h2>Hello World</h2>
                     <p>just doing something...</p>
                 </div>
