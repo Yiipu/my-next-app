@@ -1,5 +1,4 @@
 import '@/styles/globals.css'
-import 'bootstrap/dist/css/bootstrap.css'
 import type { Metadata } from 'next'
 import Head from 'next/head'
 import React from 'react'
@@ -31,7 +30,7 @@ export default function RootLayout({
         <Head>
           <title>Dodo</title>
         </Head>
-        <body>
+        <body className='bg-white dark:bg-slate-800'>
           {children}
         </body>
       </html>
