@@ -1,7 +1,10 @@
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import Head from 'next/head'
+import { Inter } from 'next/font/google'
 import React from 'react'
+
+const inter = Inter({ subsets: ['latin'] })
 
 // ISSUE
 // 不起作用
@@ -30,7 +33,7 @@ export default function RootLayout({
         <Head>
           <title>Dodo</title>
         </Head>
-        <body className='bg-white dark:bg-slate-800'>
+        <body className='bg-white dark:bg-slate-800 {inter.className}'>
           {children}
         </body>
       </html>

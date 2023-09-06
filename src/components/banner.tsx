@@ -1,9 +1,9 @@
 import Image from "next/image"
-import bannerPic from '@/../public/banner.png'
+import bannerPic from '@/media/images/banner.png'
 
 export default function Banner() {
     return (
-        <div className="w-full px-3 mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl">
+        <div className="w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl">
             <div className="h-96">
                 <Image
                     src={bannerPic}

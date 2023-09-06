@@ -1,8 +1,17 @@
 # my-next-app
 
-这是一个使用 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) 搭建的 [Next.js](https://nextjs.org/) 项目。
+这是一个使用 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) 脚手架搭建的 [React](https://react.docschina.org/) 项目。
 
-## 使用Docker部署
+[Next.js](https://nextjs.org/) 是一个受欢迎的生产环境 React 框架。
+
+要了解更多关于 Next.js 的信息，请查看以下资源：
+
+- [Next.js Documentation](https://nextjs.org/docs) - Next.js 特性和API
+- [Learn Next.js](https://nextjs.org/learn) - 互动学习 Next.js
+
+Next.js 的官方仓库 [the Next.js GitHub repository](https://github.com/vercel/next.js/)
+
+## 使用 Docker 部署
 
 如果尚未安装 Docker ，请按照 [Get Docker](https://docs.docker.com/get-docker/) 指南安装Docker。
 
@@ -16,7 +25,7 @@ git clone https://github.com/Yiipu/my-next-app.git
 
 ### 构建 Docker 镜像
 
-进入`your-repo`目录：
+进入 `your-repo` 目录：
 
 ```bash
 cd your-repo
@@ -44,12 +53,3 @@ docker run -d -p 3000:3000 your-image-name
 ### 访问应用程序
 
 应用程序现在应该正在 Docker 容器中运行。您可以在 Web 浏览器中访问 http://localhost:3000 来查看应用程序。
-
-## Learn More
-
-要了解更多关于 Next.js 的信息，请查看以下资源：
-
-- [Next.js Documentation](https://nextjs.org/docs) - Next.js 特性和API
-- [Learn Next.js](https://nextjs.org/learn) - 互动学习 Next.js
-
-Next.js 的官方仓库 [the Next.js GitHub repository](https://github.com/vercel/next.js/)
