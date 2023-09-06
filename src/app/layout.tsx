@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import Head from 'next/head'
+import Header from '@/components/header';
 import { Inter } from 'next/font/google'
 import React from 'react'
 
@@ -27,15 +28,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
-      <html lang='zh-cn'>
-        <Head>
-          <title>Dodo</title>
-        </Head>
-        <body className='bg-white dark:bg-slate-800 {inter.className}'>
-          {children}
-        </body>
-      </html>
+    <html lang='zh-cn' className='bg-white dark:bg-slate-800 ${inter.className}'>
+      <Head>
+      <title>Dodo</title>
+      </Head>
+      <body>
+        <Header></Header>
+        {children}
+      </body>
+    </html>
   )
 }

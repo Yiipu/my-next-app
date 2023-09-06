@@ -4,10 +4,13 @@ import { useCollapse } from "react-collapsed";
 import Image from "next/image";
 import githubLogo from '@/media/images/github.svg'
 import menuButtonLogo from '@/media/images/menuButton.svg'
-import { Inter } from 'next/font/google'
+import { Dancing_Script } from 'next/font/google'
+
+const dancingScript = Dancing_Script({
+    weight: ['400', '700'],
+    subsets: ['latin'],
+  })
  
-
-
 // 接口
 
 const currentNavId = 1
@@ -35,16 +38,19 @@ function GitHub() {
             <Image
                 src={githubLogo}
                 alt="Github Logo"
-                className="dark:invert h-full w-fit"
+                className="dark:invert w-fit h-12"
                 priority
             />
         </a>
     )
 }
 
+// ISSUE
+// ${}不起作用
+// fixed 要用反引号 `` 而不是引号 '' 包围
 function Logo() {
     return (
-        <a className="ml-5 pt-3 pb-1 text-xl mr-12 hover:text-blue-500" href="/">{title}</a>
+        <a className={`${dancingScript.className} ml-5 pt-3 pb-1 text-xl mr-12 hover:text-blue-500`} href="/">{title}</a>
     )
 }
 
@@ -88,12 +94,12 @@ function NavTab() {
                 <Image
                     src={menuButtonLogo}
                     alt="nav button"
-                    className="h-full w-fit"
+                    className="w-fit h-12"
                     priority
                 />
             </button>
             <nav {...getCollapseProps()}>
-                <ul className="flex-row justify-between items-middle fixed top-12 bg-slate-600">
+                <ul className="flex flex-col justify-between items-middle fixed z-20 top-12 bg-slate-600">
                     {navItems.map(
                         (item) => {
                             if (item.key == currentNavId) {
