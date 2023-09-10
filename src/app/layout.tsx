@@ -1,8 +1,7 @@
-'use client'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import Header from '@/components/header';
-import React, { useState } from 'react'
+import React from 'react'
 
 export const metadata: Metadata = {
   title: {
@@ -24,13 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
 
-  const [darkmode, setDarkmode] = useState(false);
+  let darkmode = false;
 
   return (
     // ${} 的正确用法
     <html lang='zh-cn' className={` ${darkmode ? 'dark' : ''} `}>
       <body className='bg-perfume-300 dark:bg-perfume-900 text-perfume-800 dark:text-white'>
-        <Header currentTheme={darkmode} onDarkModeToggle={setDarkmode}></Header>
+        <Header currentTheme={darkmode} callBack={(value: boolean) => {
+          darkmode = value;
+        }}></Header>
         <div className="w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl">
           {children}
         </div>

@@ -12,10 +12,10 @@ import darkLogo from '@/media/images/dark-moon.svg'
 const currentNavId = 1
 
 export default function Header({
-    onDarkModeToggle,
+    callBack,
     currentTheme,
 }: {
-    onDarkModeToggle: React.Dispatch<React.SetStateAction<boolean>>,
+    callBack: (value: boolean) => void,
     currentTheme: boolean
 }) {
     return (
@@ -26,7 +26,7 @@ export default function Header({
                     <Logo />
                     <Navbar />
                     <GitHub />
-                    <ThemeToggle onDarkModeToggle={onDarkModeToggle} currentTheme={currentTheme} />
+                    <ThemeToggle callBack={callBack} currentTheme={currentTheme} />
                 </header>
             </div>
             {/* 抵消nav的fixed-top带来的副作用
@@ -126,15 +126,15 @@ function NavTab() {
 }
 
 function ThemeToggle({
-    onDarkModeToggle,
+    callBack,
     currentTheme
 }: {
-    onDarkModeToggle: React.Dispatch<React.SetStateAction<boolean>>,
+    callBack: (value: boolean) => void,
     currentTheme: boolean,
 }) {
     return (
         <button onClick={e => {
-            onDarkModeToggle(!currentTheme);
+            callBack(!currentTheme);
         }}>{currentTheme ?
             <Image
                 src={darkLogo}
