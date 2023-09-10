@@ -8,11 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      // backgroundImage: {
+      //   'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      //   'gradient-conic':
+      //     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      // },
+      // 使用 Bootstrap 的断点
       maxWidth: {
         sm: `${540 / 16}rem`,
         md: `${720 / 16}rem`,
@@ -21,16 +22,31 @@ const config: Config = {
         xxl: `${1320 / 16}rem`,
       },
       screens: {
-        // Don't need xs since Tailwind uses min-width approach
-        // to its media queries.
         sm: '576px',
         md: '768px',
         lg: '992px',
         xl: '1200px',
         xxl: '1400px',
       },
+      colors: {
+        'perfume': {
+          '50': '#fbf6fe',
+          '100': '#f5eafd',
+          '200': '#edd9fb',
+          '300': '#debbf7',
+          '400': '#d09cf2',
+          '500': '#b665e7',
+          '600': '#a145d8',
+          '700': '#8b33bd',
+          '800': '#752e9b',
+          '900': '#60267d',
+          '950': '#42105b',
+        },
+      }
     },
   },
   plugins: [],
+  // 手动启用暗色模式
+  darkMode: 'class',
 }
 export default config

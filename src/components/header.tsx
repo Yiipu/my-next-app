@@ -1,33 +1,42 @@
-"use client"
+'use client'
 import { github, navItems, title } from "@/config/config"
 import { useCollapse } from "react-collapsed";
 import Image from "next/image";
 import githubLogo from '@/media/images/github.svg'
 import menuButtonLogo from '@/media/images/menuButton.svg'
+import lightLogo from '@/media/images/light-sun.svg'
+import darkLogo from '@/media/images/dark-moon.svg'
 import { Dancing_Script } from 'next/font/google'
 
 const dancingScript = Dancing_Script({
     weight: ['400', '700'],
     subsets: ['latin'],
-  })
- 
+})
+
 // 接口
 
 const currentNavId = 1
 
-export default function Header() {
+export default function Header({
+    onDarkModeToggle,
+    currentTheme,
+}: {
+    onDarkModeToggle: React.Dispatch<React.SetStateAction<boolean>>,
+    currentTheme: boolean
+}) {
     return (
         <>
-            <div className="w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl fixed top-0 left-0 right-0">
-                <header className="flex relative bg-sky-500/50 h-12">
+            <div className="w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl">
+                <header className="flex relative bg h-12">
                     <NavTab />
                     <Logo />
                     <Navbar />
                     <GitHub />
+                    <ThemeToggle onDarkModeToggle={onDarkModeToggle} currentTheme={currentTheme} />
                 </header>
             </div>
-            {/* 抵消nav的fixed-top带来的副作用 */}
-            <div className="pt-12 h-0"></div>
+            {/* 抵消nav的fixed-top带来的副作用
+            <div className="pt-12 h-0"></div> */}
         </>
     )
 }
@@ -39,7 +48,6 @@ function GitHub() {
                 src={githubLogo}
                 alt="Github Logo"
                 className="dark:invert w-fit h-12"
-                priority
             />
         </a>
     )
@@ -64,7 +72,7 @@ function Navbar() {
                         if (item.key == currentNavId) {
                             return (
                                 <li className="mr-7">
-                                    <a className="text-blue-300" href={item.href}>{item.title}</a>
+                                    <a className="text-perfume-" href={item.href}>{item.title}</a>
                                 </li>
                             )
                         }
@@ -95,7 +103,6 @@ function NavTab() {
                     src={menuButtonLogo}
                     alt="nav button"
                     className="w-fit h-12"
-                    priority
                 />
             </button>
             <nav {...getCollapseProps()}>
@@ -121,5 +128,29 @@ function NavTab() {
                 </ul>
             </nav>
         </div>
+    )
+}
+
+function ThemeToggle({
+    onDarkModeToggle,
+    currentTheme
+}: {
+    onDarkModeToggle: React.Dispatch<React.SetStateAction<boolean>>,
+    currentTheme: boolean,
+}) {
+    return (
+        <button onClick={e => {
+            onDarkModeToggle(!currentTheme);
+        }}>{currentTheme ?
+            <Image
+                src={darkLogo}
+                alt="dark theme"
+                className="w-fit h-8"
+            /> :
+            <Image
+                src={lightLogo}
+                alt="light theme"
+                className="w-fit h-8"
+            />}</button>
     )
 }

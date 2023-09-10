@@ -1,14 +1,12 @@
+'use client'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
-import Head from 'next/head'
 import Header from '@/components/header';
 import { Inter } from 'next/font/google'
-import React from 'react'
+import React, { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
-// ISSUE
-// 不起作用
 export const metadata: Metadata = {
   title: {
     default: 'Dodo',
@@ -28,14 +26,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+  const [darkmode, setDarkmode] = useState(false);
+
   return (
-    <html lang='zh-cn' className='bg-white dark:bg-slate-800 ${inter.className}'>
-      <Head>
-      <title>Dodo</title>
-      </Head>
-      <body>
-        <Header></Header>
-        {children}
+    // ${} 的正确用法
+    <html lang='zh-cn' className={` ${inter.className} ${darkmode ? 'dark' : ''} `}>
+      <body className='bg-perfume-300 dark:bg-perfume-900 text-perfume-800 dark:text-white'>
+        <Header currentTheme={darkmode} onDarkModeToggle={setDarkmode}></Header>
+        <div className="w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl">
+          {children}
+        </div>
       </body>
     </html>
   )
