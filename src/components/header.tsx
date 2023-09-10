@@ -6,12 +6,6 @@ import githubLogo from '@/media/images/github.svg'
 import menuButtonLogo from '@/media/images/menuButton.svg'
 import lightLogo from '@/media/images/light-sun.svg'
 import darkLogo from '@/media/images/dark-moon.svg'
-import { Dancing_Script } from 'next/font/google'
-
-const dancingScript = Dancing_Script({
-    weight: ['400', '700'],
-    subsets: ['latin'],
-})
 
 // 接口
 
@@ -58,7 +52,7 @@ function GitHub() {
 // fixed 要用反引号 `` 而不是引号 '' 包围
 function Logo() {
     return (
-        <a className={`${dancingScript.className} ml-5 pt-3 pb-1 text-xl mr-12 hover:text-blue-500`} href="/">{title}</a>
+        <a className={` ml-5 pt-3 pb-1 text-xl mr-12 hover:text-blue-500`} href="/">{title}</a>
     )
 }
 
@@ -71,14 +65,14 @@ function Navbar() {
                     (item) => {
                         if (item.key == currentNavId) {
                             return (
-                                <li className="mr-7">
+                                <li className="mr-7" key={item.key}>
                                     <a className="text-perfume-" href={item.href}>{item.title}</a>
                                 </li>
                             )
                         }
                         else {
                             return (
-                                <li className="mr-7">
+                                <li className="mr-7" key={item.key}>
                                     <a className="hover:text-blue-300" href={item.href}>{item.title}</a>
                                 </li>
                             )
@@ -111,14 +105,14 @@ function NavTab() {
                         (item) => {
                             if (item.key == currentNavId) {
                                 return (
-                                    <li className="mr-5">
+                                    <li className="mr-5" key={item.key}>
                                         <a className="text-blue-300" href={item.href}>{item.title}</a>
                                     </li>
                                 )
                             }
                             else {
                                 return (
-                                    <li className="mr-5">
+                                    <li className="mr-5" key={item.key}>
                                         <a className="hover:text-blue-300" href={item.href}>{item.title}</a>
                                     </li>
                                 )

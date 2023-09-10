@@ -15,10 +15,10 @@ export default function Home() {
       {articles.map(
         (a) => {
           return (
-            <li className="mb-2 w-full md:w-2/4 px-2"><a href={a.href}>
+            <li className="mb-2 w-full md:w-2/4 px-2" key={a.key}><a href={a.href}>
               <div className="card bg-perfume-600 text-white">
-                <h3>{a.title}</h3>
-                <p>{a.description}</p>
+                <h3 key={a.key}>{a.title}</h3>
+                <p key={a.key}>{a.description}</p>
               </div>
             </a></li>
           )
