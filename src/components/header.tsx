@@ -133,7 +133,7 @@ function ThemeToggle({
     currentTheme: boolean,
 }) {
     return (
-        <button onClick={e => {
+        <button onClick={async e => {
             callBack(!currentTheme);
         }}>{currentTheme ?
             <Image
