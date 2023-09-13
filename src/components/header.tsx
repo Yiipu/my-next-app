@@ -15,7 +15,7 @@ export default function Header({
     callBack,
     currentTheme,
 }: {
-    callBack: (value: boolean) => void,
+    callBack: ((value: boolean) => void) | any,
     currentTheme: boolean
 }) {
     return (
@@ -26,7 +26,7 @@ export default function Header({
                     <Logo />
                     <Navbar />
                     <GitHub />
-                    <ThemeToggle callBack={callBack} currentTheme={currentTheme} />
+                    {/* <ThemeToggle callBack={callBack} currentTheme={currentTheme} /> */}
                 </header>
             </div>
             {/* 抵消nav的fixed-top带来的副作用
