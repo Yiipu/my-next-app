@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import Header from '@/components/header';
 import React from 'react'
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: {
@@ -25,6 +26,20 @@ export default function RootLayout({
   return (
     // ${} 的正确用法
     <html lang='zh-cn'>
+      {/* Google Analytics */}
+      <Script
+        src='https://www.googletagmanager.com/gtag/js?id=G-S72BH8NKD1'
+        strategy="afterInteractive"
+      />
+      <Script id='google-analytics' strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-xxxxxxxxxx');
+        `}
+      </Script>
       <body className='bg-perfume-300 dark:bg-perfume-900 text-perfume-800 dark:text-white'>
         <Header></Header>
         {children}

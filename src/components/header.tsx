@@ -12,18 +12,21 @@ const currentNavId = 1
 export default function Header() {
     return (
         <>
-            <div className="w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl">
-                <header className="flex relative bg h-12">
-                    <NavTab />
-                    <Logo />
-                    <Navbar />
-                    <GitHub />
-                    {/* <ThemeToggle callBack={callBack} currentTheme={currentTheme} /> */}
-                </header>
+            <div className="fixed right-0 left-0 bg-perfume-300 dark:bg-black">
+                <div className="container-md">
+                    <header className="flex relative bg h-12">
+                        <NavTab />
+                        <Logo />
+                        <Navbar />
+                        <GitHub />
+                        {/* <ThemeToggle callBack={callBack} currentTheme={currentTheme} /> */}
+                    </header>
+                </div>
             </div>
-            {/* 抵消nav的fixed-top带来的副作用
-            <div className="pt-12 h-0"></div> */}
+            {/* 抵消nav的fixed-top带来的副作用 */}
+            <div className="pt-12 h-0"></div>
         </>
+
     )
 }
 
@@ -32,10 +35,10 @@ function GitHub() {
         <a href={github.url} className="absolute right-0 top-0 h-full" aria-label="View source on GitHub">
             <Image
                 src='/github.svg'
-                width={0}
-                height={0}
+                width={48}
+                height={48}
                 alt="Github Logo"
-                className="dark:invert w-fit h-12"
+                className="w-fit h-12"
             />
         </a>
     )
@@ -89,8 +92,8 @@ function NavTab() {
             <button {...getToggleProps()} className="h-full">
                 <Image
                     src='/menuButton.svg'
-                    width={0}
-                    height={0}
+                    width={48}
+                    height={48}
                     alt="nav button"
                     className="w-fit h-12 dark:invert"
                 />

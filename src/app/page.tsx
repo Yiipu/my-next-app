@@ -4,9 +4,11 @@ import LoadList from "@/components/loadlist"
 
 export default function Home() {
   return (
-    <div className="container-md">
-      <Banner />
-      <LoadList />
+    <div>
+      <div className="container-md  pt-2">
+        <Banner />
+        <LoadList />
+      </div>
     </div>
   )
 }
