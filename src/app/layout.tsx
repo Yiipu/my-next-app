@@ -22,22 +22,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  let darkmode = false;
-
-  async function setDarkmode(value: boolean){
-    'use server'
-    darkmode = value;
-  }
-
   return (
     // ${} 的正确用法
-    <html lang='zh-cn' className={` ${darkmode ? 'dark' : ''} `}>
+    <html lang='zh-cn'>
       <body className='bg-perfume-300 dark:bg-perfume-900 text-perfume-800 dark:text-white'>
-        <Header currentTheme={darkmode} callBack={setDarkmode}></Header>
-        <div className="w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl">
-          {children}
-        </div>
+        <Header></Header>
+        {children}
       </body>
     </html>
   )

@@ -47,6 +47,6 @@ const config: Config = {
   },
   plugins: [],
   // 手动启用暗色模式
-  darkMode: 'class',
+  // darkMode: 'class',
 }
 export default config
