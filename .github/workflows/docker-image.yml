@@ -2,9 +2,9 @@ name: Publish Docker image
 
 on:
   push:
-    branches: [ "docker-image" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "docker-image" ]
+    branches: [ "main" ]
 
 jobs:
   push_to_registry:
