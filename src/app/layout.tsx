@@ -27,9 +27,7 @@ export default function RootLayout({
     <html lang='zh-cn'>
       <body className='bg-perfume-300 dark:bg-perfume-900 text-perfume-800 dark:text-white'>
         <Header></Header>
-        <div className="container-md">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   )

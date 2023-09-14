@@ -10,7 +10,7 @@ const articles = [
 
 export default function Home() {
   return (
-    <>
+    <div className="container-md">
       <Banner />
       <ul className="flex flex-wrap mt-2">
         {articles.map(
@@ -19,6 +19,6 @@ export default function Home() {
               <Card article={a} key={a.key}></Card>)
           })}
       </ul>
-    </>
+    </div>
   )
 }
