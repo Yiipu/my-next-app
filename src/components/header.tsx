@@ -2,22 +2,14 @@
 import { github, navItems, title } from "@/config/config"
 import { useCollapse } from "react-collapsed";
 import Image from "next/image";
-import githubLogo from '@/media/images/github.svg'
-import menuButtonLogo from '@/media/images/menuButton.svg'
-import lightLogo from '@/media/images/light-sun.svg'
-import darkLogo from '@/media/images/dark-moon.svg'
+// import lightLogo from '@/media/images/light-sun.svg'
+// import darkLogo from '@/media/images/dark-moon.svg'
 
 // 接口
 
 const currentNavId = 1
 
-export default function Header({
-    callBack,
-    currentTheme,
-}: {
-    callBack: ((value: boolean) => void) | any,
-    currentTheme: boolean
-}) {
+export default function Header() {
     return (
         <>
             <div className="w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl">
@@ -39,7 +31,9 @@ function GitHub() {
     return (
         <a href={github.url} className="absolute right-0 top-0 h-full" aria-label="View source on GitHub">
             <Image
-                src={githubLogo}
+                src='/github.svg'
+                width={0}
+                height={0}
                 alt="Github Logo"
                 className="dark:invert w-fit h-12"
             />
@@ -52,7 +46,7 @@ function GitHub() {
 // fixed 要用反引号 `` 而不是引号 '' 包围
 function Logo() {
     return (
-        <a className={` ml-5 pt-3 pb-1 text-xl mr-12 hover:text-blue-500`} href="/">{title}</a>
+        <a className={`logo`} href="/">{title}</a>
     )
 }
 
@@ -94,9 +88,11 @@ function NavTab() {
         <div className="block md:hidden">
             <button {...getToggleProps()} className="h-full">
                 <Image
-                    src={menuButtonLogo}
+                    src='/menuButton.svg'
+                    width={0}
+                    height={0}
                     alt="nav button"
-                    className="w-fit h-12"
+                    className="w-fit h-12 dark:invert"
                 />
             </button>
             <nav {...getCollapseProps()}>
@@ -125,26 +121,26 @@ function NavTab() {
     )
 }
 
-function ThemeToggle({
-    callBack,
-    currentTheme
-}: {
-    callBack: (value: boolean) => void,
-    currentTheme: boolean,
-}) {
-    return (
-        <button onClick={async e => {
-            callBack(!currentTheme);
-        }}>{currentTheme ?
-            <Image
-                src={darkLogo}
-                alt="dark theme"
-                className="w-fit h-8"
-            /> :
-            <Image
-                src={lightLogo}
-                alt="light theme"
-                className="w-fit h-8"
-            />}</button>
-    )
-}
+// function ThemeToggle({
+//     callBack,
+//     currentTheme
+// }: {
+//     callBack: (value: boolean) => void,
+//     currentTheme: boolean,
+// }) {
+//     return (
+//         <button onClick={async e => {
+//             callBack(!currentTheme);
+//         }}>{currentTheme ?
+//             <Image
+//                 src={darkLogo}
+//                 alt="dark theme"
+//                 className="w-fit h-8"
+//             /> :
+//             <Image
+//                 src={lightLogo}
+//                 alt="light theme"
+//                 className="w-fit h-8"
+//             />}</button>
+//     )
+// }
