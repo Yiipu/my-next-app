@@ -44,12 +44,20 @@ docker build -t your-image-name .
 镜像构建完成后，使用以下命令在 Docker 容器中运行应用程序：
 
 ```bash
-docker run -d -p 3000:3000 your-image-name
+docker run --rm -d -p 3030:3000/tcp your-image-name
 ```
 
 - `-d`：表示在后台运行容器。
-- `-p 3000:3000`：表示将容器的端口 3000 映射到主机的端口 3000 ，您可以根据应用程序的需要更改端口映射。
+- `-p 3030:3000`：表示将容器的端口 3000 映射到主机的端口 3030 。
 
-### 访问应用程序
+可以根据应用程序的需要更改主机端口映射。要修改容器端口映射，请修改 `Dockerfile` 对应部分：
+
+```
+EXPOSE `your-docker-port`
+
+ENV PORT `your-docker-port`
+# set hostname to localhost
+ENV HOSTNAME "0.0.0.0"
+```
 
 应用程序现在应该正在 Docker 容器中运行。您可以在 Web 浏览器中访问 http://localhost:3000 来查看应用程序。
