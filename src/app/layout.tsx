@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
-import FixedHeader from '@/components/header';
+import Header from '@/components/header';
 import React from 'react'
 import Script from 'next/script';
 
@@ -41,7 +41,9 @@ export default function RootLayout({
         `}
       </Script>
       <body className='bg-perfume-300 dark:bg-perfume-900 text-perfume-800 dark:text-white'>
-        <FixedHeader></FixedHeader>
+        <Header className='fixed top-0 backdrop-blur-sm'></Header>
+        {/* 抵消 fixed-top 带来的副作用 */}
+        <div className="pt-12 h-0"></div>
         <main className='container-md px-2 py-2'>
           {children}
         </main>

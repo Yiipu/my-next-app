@@ -1,5 +1,5 @@
 import Banner from "@/components/banner"
-import LoadList from "@/components/loadlist"
+import LoadList from "@/components/load-list"
 
 export default function Home() {
   return (

@@ -5,11 +5,15 @@ import Link from "next/link";
 
 export default function Nav({
     navLinks,
+    linkStyle,
+    activeLinkStyle,
 }: {
     navLinks: {
         href: string;
         name: string;
     }[],
+    linkStyle?: string,
+    activeLinkStyle?:string
 }) {
 
     const pathname = usePathname()
@@ -23,7 +27,7 @@ export default function Nav({
 
                     return (
                         <Link
-                            className={`${isActive ? 'border-b-4' : ''} block h-full mr-5 hover:border-b-4`}
+                            className={`${isActive && activeLinkStyle} ${linkStyle}`}
                             href={link.href}
                             key={link.name}
                         >

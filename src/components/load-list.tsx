@@ -6,8 +6,8 @@ export default function LoadList({
     buttonStyle = 'block mx-auto',
     listStyle = 'md:flex md:flex-row md:flex-wrap',
 }: {
-    buttonStyle: string,
-    listStyle: string,
+    buttonStyle?: string,
+    listStyle?: string,
 }
 ) {
     const [list, setList] = useState(loadMore(0))

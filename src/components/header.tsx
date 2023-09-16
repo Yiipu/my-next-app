@@ -3,30 +3,32 @@ import Image from "next/image"
 import CollapsTab from "./collapse-tab"
 import Nav from "./nav"
 
-export default function FixedHeader() {
+export default function Header(
+    {
+        className,
+    }: {
+        className?: string,
+    }) {
     return (
-        <>
-            <header className="fixed top-0 w-full bg-inherit">
-                <div className="flex relative h-12 leading-12">
-                    <div className="absolute md:hidden">
-                        <CollapsTab />
-                    </div>
-                    <div className="mx-auto text-center md:mx-2">
-                        <Logo />
-                    </div>
-                    <div className="hidden md:block w-16" />
-                    <nav className="hidden md:flex">
-                        <Nav navLinks={navLinks}/>
-                    </nav>
-                    <div className="absolute right-0">
-                        <GitHub />
-                    </div>
+        <header className={`${className} w-full`}>
+            <div className="flex relative h-12 leading-12">
+                <div className="absolute md:hidden">
+                    <CollapsTab />
                 </div>
-            </header>
-            {/* 抵消 fixed-top 带来的副作用 */}
-            <div className="pt-12 h-0"></div>
-        </>
-
+                <div className="mx-auto text-center md:mx-2">
+                    <Logo />
+                </div>
+                <div className="hidden md:block w-16" />
+                <nav className="hidden md:flex">
+                    <Nav navLinks={navLinks}
+                        linkStyle="block h-full mr-5 hover:border-b-4"
+                        activeLinkStyle="border-b-4" />
+                </nav>
+                <div className="absolute right-0">
+                    <GitHub />
+                </div>
+            </div>
+        </header>
     )
 }
 
