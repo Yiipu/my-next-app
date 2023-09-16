@@ -17,7 +17,7 @@ export default function CollapsTab() {
                     width={48}
                     height={48}
                     alt="nav button"
-                    className="w-fit h-12 dark:invert" />
+                    className="w-fit h-12" />
             </button>
             {!collapsed && <nav>
                 nav items....

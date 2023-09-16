@@ -6,7 +6,7 @@ import Nav from "./nav"
 export default function FixedHeader() {
     return (
         <>
-            <header className="fixed top-0 w-full bg-perfume-300 dark:bg-black">
+            <header className="fixed top-0 w-full bg-inherit">
                 <div className="flex relative h-12 leading-12">
                     <div className="absolute md:hidden">
                         <CollapsTab />
@@ -14,7 +14,7 @@ export default function FixedHeader() {
                     <div className="mx-auto text-center md:mx-2">
                         <Logo />
                     </div>
-                    <div className="w-16" />
+                    <div className="hidden md:block w-16" />
                     <nav className="hidden md:flex">
                         <Nav navLinks={navLinks}/>
                     </nav>

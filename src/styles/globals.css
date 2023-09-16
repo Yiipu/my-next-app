@@ -2,31 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-    .card {
-      border-radius: theme('borderRadius.lg');
-      padding: theme('spacing.6');
-      box-shadow: theme('boxShadow.xl');
-    }
-
-    .container-md {
-      @apply w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl;
-    }
-
-    .logo{
-      font-family: "阿里妈妈灵动体 VF Thin";
-      --wght: 555.64;
-      --wdth: 125;
-      --slnt: 6.14;
-      --SRIF: 0;
-      font-variation-settings: 'wght' var(--wght),'wdth' var(--wdth),'slnt' var(--slnt),'SRIF' var(--SRIF);
-      @apply text-xl;
-    }
+@layer base {
+  :root {
+    color-scheme: light dark;
   }
+}
+
+@layer components {
+  .card {
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
+  }
+
+  .container-md {
+    @apply w-full mx-auto md:max-w-md lg:max-w-lg xl:max-w-xl xxl:max-w-xxl;
+  }
+
+  .logo {
+    font-family: "阿里妈妈灵动体 VF Thin";
+    --wght: 555.64;
+    --wdth: 125;
+    --slnt: 6.14;
+    --SRIF: 0;
+    font-variation-settings: 'wght' var(--wght), 'wdth' var(--wdth), 'slnt' var(--slnt), 'SRIF' var(--SRIF);
+    @apply text-xl;
+  }
+}
 
 @font-face {
   font-family: "阿里妈妈灵动体 VF Thin";
   src: url("//at.alicdn.com/wf/webfont/Gd5mJqPemWAg/eVtvnfZ9XJER.woff2") format("woff2"),
-  url("//at.alicdn.com/wf/webfont/Gd5mJqPemWAg/kTomb9Azx8rK.woff") format("woff");
+    url("//at.alicdn.com/wf/webfont/Gd5mJqPemWAg/kTomb9Azx8rK.woff") format("woff");
   font-display: swap;
 }

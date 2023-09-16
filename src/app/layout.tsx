@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   keywords: ['Next.js', 'React', 'JavaScript', 'Dodo'],
   authors: [{ name: 'Yiipu', url: 'https://github.com/Yiipu' }],
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'light' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    { media: '(prefers-color-scheme: light)', color: '#debbf7' },
+    { media: '(prefers-color-scheme: dark)', color: '#60267d' },
   ],
 }
 
