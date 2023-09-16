@@ -1,10 +1,7 @@
-import { github, navItems, title } from "@/config/config"
-import Image from "next/image";
-import { CollapsTab } from "./collapse-tab";
-
-// 接口
-
-export const currentNavId = 1
+import { github, title, navLinks } from "@/config/config"
+import Image from "next/image"
+import CollapsTab from "./collapse-tab"
+import Nav from "./nav"
 
 export default function FixedHeader() {
     return (
@@ -14,12 +11,13 @@ export default function FixedHeader() {
                     <div className="absolute md:hidden">
                         <CollapsTab />
                     </div>
-                    <div className="mx-auto text-center md:ml-2 md:mr-7">
+                    <div className="mx-auto text-center md:mx-2">
                         <Logo />
                     </div>
-                    <div className="hidden md:block">
-                        <Navbar />
-                    </div>
+                    <div className="w-16" />
+                    <nav className="hidden md:flex">
+                        <Nav navLinks={navLinks}/>
+                    </nav>
                     <div className="absolute right-0">
                         <GitHub />
                     </div>
@@ -46,38 +44,8 @@ function GitHub() {
     )
 }
 
-// ISSUE
-// ${}不起作用
-// fixed 要用反引号 `` 而不是引号 '' 包围
 function Logo() {
     return (
         <a className="logo" href="/">{title}</a>
-    )
-}
-
-function Navbar() {
-    return (
-        <nav>
-            <ul className="flex">
-                {navItems.map(
-                    (item) => {
-                        if (item.key == currentNavId) {
-                            return (
-                                <li className="mr-7" key={item.key}>
-                                    <a className="text-perfume-" href={item.href}>{item.title}</a>
-                                </li>
-                            )
-                        }
-                        else {
-                            return (
-                                <li className="mr-7" key={item.key}>
-                                    <a className="hover:text-blue-300" href={item.href}>{item.title}</a>
-                                </li>
-                            )
-                        }
-                    }
-                )}
-            </ul>
-        </nav>
     )
 }

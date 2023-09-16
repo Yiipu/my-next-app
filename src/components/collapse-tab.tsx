@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 // 在 <md 屏幕上显示
-export function CollapsTab() {
+export default function CollapsTab() {
 
     const [collapsed, setCollapsed] = useState(true)
 
