@@ -1,29 +1,31 @@
-'use client'
 import { github, navItems, title } from "@/config/config"
-import { useCollapse } from "react-collapsed";
 import Image from "next/image";
-// import lightLogo from '@/media/images/light-sun.svg'
-// import darkLogo from '@/media/images/dark-moon.svg'
+import { CollapsTab } from "./collapse-tab";
 
 // 接口
 
-const currentNavId = 1
+export const currentNavId = 1
 
-export default function Header() {
+export default function FixedHeader() {
     return (
         <>
-            <div className="fixed right-0 left-0 bg-perfume-300 dark:bg-black">
-                <div className="container-md">
-                    <header className="flex relative bg h-12">
-                        <NavTab />
+            <header className="fixed top-0 w-full bg-perfume-300 dark:bg-black">
+                <div className="flex relative h-12 leading-12">
+                    <div className="absolute md:hidden">
+                        <CollapsTab />
+                    </div>
+                    <div className="mx-auto text-center md:ml-2 md:mr-7">
                         <Logo />
+                    </div>
+                    <div className="hidden md:block">
                         <Navbar />
+                    </div>
+                    <div className="absolute right-0">
                         <GitHub />
-                        {/* <ThemeToggle callBack={callBack} currentTheme={currentTheme} /> */}
-                    </header>
+                    </div>
                 </div>
-            </div>
-            {/* 抵消nav的fixed-top带来的副作用 */}
+            </header>
+            {/* 抵消 fixed-top 带来的副作用 */}
             <div className="pt-12 h-0"></div>
         </>
 
@@ -32,7 +34,7 @@ export default function Header() {
 
 function GitHub() {
     return (
-        <a href={github.url} className="absolute right-0 top-0 h-full" aria-label="View source on GitHub">
+        <a href={github.url} aria-label="View source on GitHub">
             <Image
                 src='/github.svg'
                 width={48}
@@ -49,15 +51,14 @@ function GitHub() {
 // fixed 要用反引号 `` 而不是引号 '' 包围
 function Logo() {
     return (
-        <a className={`logo`} href="/">{title}</a>
+        <a className="logo" href="/">{title}</a>
     )
 }
 
-// 在 >md 屏幕上显示
 function Navbar() {
     return (
-        <nav className="hidden md:block pt-2">
-            <ul className="flex justify-between items-middle pt-1 pb-1">
+        <nav>
+            <ul className="flex">
                 {navItems.map(
                     (item) => {
                         if (item.key == currentNavId) {
@@ -80,70 +81,3 @@ function Navbar() {
         </nav>
     )
 }
-
-
-// 在 <md 屏幕上显示
-function NavTab() {
-
-    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
-
-    return (
-        <div className="block md:hidden">
-            <button {...getToggleProps()} className="h-full">
-                <Image
-                    src='/menuButton.svg'
-                    width={48}
-                    height={48}
-                    alt="nav button"
-                    className="w-fit h-12 dark:invert"
-                />
-            </button>
-            <nav {...getCollapseProps()}>
-                <ul className="flex flex-col justify-between items-middle fixed z-20 top-12 bg-slate-600">
-                    {navItems.map(
-                        (item) => {
-                            if (item.key == currentNavId) {
-                                return (
-                                    <li className="mr-5" key={item.key}>
-                                        <a className="text-blue-300" href={item.href}>{item.title}</a>
-                                    </li>
-                                )
-                            }
-                            else {
-                                return (
-                                    <li className="mr-5" key={item.key}>
-                                        <a className="hover:text-blue-300" href={item.href}>{item.title}</a>
-                                    </li>
-                                )
-                            }
-                        }
-                    )}
-                </ul>
-            </nav>
-        </div>
-    )
-}
-
-// function ThemeToggle({
-//     callBack,
-//     currentTheme
-// }: {
-//     callBack: (value: boolean) => void,
-//     currentTheme: boolean,
-// }) {
-//     return (
-//         <button onClick={async e => {
-//             callBack(!currentTheme);
-//         }}>{currentTheme ?
-//             <Image
-//                 src={darkLogo}
-//                 alt="dark theme"
-//                 className="w-fit h-8"
-//             /> :
-//             <Image
-//                 src={lightLogo}
-//                 alt="light theme"
-//                 className="w-fit h-8"
-//             />}</button>
-//     )
-// }

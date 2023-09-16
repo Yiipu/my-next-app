@@ -20,8 +20,7 @@
       --slnt: 6.14;
       --SRIF: 0;
       font-variation-settings: 'wght' var(--wght),'wdth' var(--wdth),'slnt' var(--slnt),'SRIF' var(--SRIF);
-      font-size: 43px;
-      @apply ml-5 pt-3 pb-1 text-xl mr-12;
+      @apply text-xl;
     }
   }
 

@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
-import Header from '@/components/header';
+import FixedHeader from '@/components/header';
 import React from 'react'
 import Script from 'next/script';
 
@@ -41,8 +41,10 @@ export default function RootLayout({
         `}
       </Script>
       <body className='bg-perfume-300 dark:bg-perfume-900 text-perfume-800 dark:text-white'>
-        <Header></Header>
-        {children}
+        <FixedHeader></FixedHeader>
+        <main className='container-md px-2 py-2'>
+          {children}
+        </main>
       </body>
     </html>
   )

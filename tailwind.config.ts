@@ -42,7 +42,10 @@ const config: Config = {
           '900': '#60267d',
           '950': '#42105b',
         },
-      }
+      },
+      lineHeight: {
+        '12': '3rem',
+      },
     },
   },
   plugins: [],
