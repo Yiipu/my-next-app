@@ -1,19 +1,16 @@
 'use client'
 import Image from "next/image";
-import { useState } from "react";
 import Nav from "./nav";
 import { navLinks } from "@/config/config";
+import { useCollapse } from 'react-collapsed'
 
 // 在 <md 屏幕上显示
 export default function CollapsTab() {
-
-    const [collapsed, setCollapsed] = useState(true)
+    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
 
     return (
         <>
-            <button className="h-full" onClick={() => {
-                setCollapsed(!collapsed)
-            }}>
+            <button {...getToggleProps()} className="absolute left-0 top-0">
                 <Image
                     src='/menuButton.svg'
                     width={48}
@@ -21,9 +18,9 @@ export default function CollapsTab() {
                     alt="nav button"
                     className="w-fit h-12" />
             </button>
-            {!collapsed && <nav className="block backdrop-blur-sm">
-                <Nav navLinks={navLinks} linkStyle="" activeLinkStyle="" />
-            </nav>}
+            <nav {...getCollapseProps()} className="">
+                <Nav navLinks={navLinks} linkStyle="text-center block" activeLinkStyle="" />
+            </nav>
         </>
-    );
+    )
 }

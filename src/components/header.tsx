@@ -11,12 +11,12 @@ export default function Header(
     }) {
     return (
         <header className={`${className} w-full`}>
-            <div className="flex relative h-12 leading-12">
-                <div className="absolute md:hidden">
-                    <CollapsTab />
-                </div>
-                <div className="mx-auto text-center md:mx-2">
+            <div className="md:flex md:flex-wrap relative h-fit md:h-12 leading-12">
+                <div className="text-center w-full md:w-fit md:mx-2">
                     <Logo />
+                </div>
+                <div className="md:hidden">
+                    <CollapsTab />
                 </div>
                 <div className="hidden md:block w-16" />
                 <nav className="hidden md:flex">
@@ -24,7 +24,7 @@ export default function Header(
                         linkStyle="block h-full mr-5 hover:border-b-4"
                         activeLinkStyle="border-b-4" />
                 </nav>
-                <div className="absolute right-0">
+                <div className="absolute right-0 top-0">
                     <GitHub />
                 </div>
             </div>
