@@ -25,39 +25,36 @@ git clone https://github.com/Yiipu/my-next-app.git
 
 ### 构建 Docker 镜像
 
-进入 `your-repo` 目录：
+进入 `YOUR-REPO` 目录并使用 Dockerfile 构建 Docker 镜像：
 
 ```bash
-cd your-repo
+cd YOUR-REPO
+docker build -t YOUR-IMAGE-NAME .
 ```
 
-使用 Dockerfile 构建 Docker 镜像：
-
-```bash
-docker build -t your-image-name .
-```
-
-这将根据项目中的 Dockerfile 创建一个 Docker 镜像，并使用 `your-image-name` 来命名镜像。命令末尾的句点（`.`）表示 Dockerfile 位于当前目录，注意不要漏掉。
+> 这将根据项目中的 Dockerfile 创建一个 Docker 镜像，并使用 `YOUR-IMAGE-NAME` 来命名镜像。命令末尾的句点（`.`）表示 Dockerfile 位于当前目录，注意不要漏掉。
 
 ### 运行 Docker 容器
 
 镜像构建完成后，使用以下命令在 Docker 容器中运行应用程序：
 
 ```bash
-docker run --rm -d -p 3030:3000/tcp your-image-name
+docker run --rm -d -p 3030:3000/tcp YOUR-IMAGE-NAME
 ```
 
 - `-d`：表示在后台运行容器。
-- `-p 3030:3000`：表示将容器的端口 3000 映射到主机的端口 3030 。
+- `-p 3030:3000`：表示将 <b>容器</b> 的端口 3000 映射到 <b>主机</b> 的端口 3030 。
 
-可以根据应用程序的需要更改主机端口映射。要修改容器端口映射，请修改 `Dockerfile` 对应部分：
+可以根据应用程序的需要更改 <b>主机</b> 端口映射。
+
+要修改 <b>容器</b> 端口映射，请修改 `Dockerfile` 对应部分：
 
 ```
-EXPOSE `your-docker-port`
+EXPOSE `YOUR-CONTAINER-PORT`
 
-ENV PORT `your-docker-port`
+ENV PORT `YOUR-CONTAINER-PORT`
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 ```
 
-应用程序现在应该正在 Docker 容器中运行。您可以在 Web 浏览器中访问 http://localhost:3000 来查看应用程序。
+应用程序现在应该正在容器中运行。您可以在 Web 浏览器中访问 http://localhost:3000 来查看应用程序。
